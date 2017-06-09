@@ -1,0 +1,56 @@
+<!--
+  Acquired and adjusted from https://github.com/liwenyip/hugo-easy-gallery/
+  Documentation and license located there
+-->
+
+{{- $.Page.Scratch.Add "figurecount" 1 -}}{{ $baseURL := .Site.BaseURL }}
+<div
+  class="gallery"
+  itemscope
+  itemtype="http://schema.org/ImageGallery"
+>
+  {{- with (.Get "dir") -}}
+    {{- $files := readDir (print "/static/" .) }}
+
+    {{- range $files -}}
+      {{- $thumbext := $.Get "thumb" | default "-thumb" }}
+      {{- $isthumb := .Name | findRE ($thumbext | printf "%s\\.") }}
+      {{- $isimg := lower .Name | findRE "\\.(gif|jpg|jpeg|tiff|png|bmp)" }}
+
+      {{- if and $isimg (not $isthumb) }}
+        {{- $caption :=  .Name | replaceRE "\\..*" "" }}
+        {{- $linkURL := print $baseURL ($.Get "dir") "/" .Name | absURL }}
+        {{- $thumb := .Name | replaceRE "(\\.)" ($thumbext | printf "%s.") }}
+        {{- $thumbURL := print $baseURL ($.Get "dir") "/" $thumb | absURL }}
+
+        <div class="lightbox">
+          <figure
+              itemprop="associatedMedia"
+              itemscope
+              itemtype="http://schema.org/ImageObject"
+          >
+            <div
+              class="image-container"
+              style="background-image: url('{{ $thumbURL }}')" >
+
+              <img
+                itemprop="thumbnail"
+                src="{{ $thumbURL }}"
+                alt="{{ $caption }}"
+              />
+            </div>
+
+            <figcaption>
+              <p>{{ $caption }}</p>
+            </figcaption>
+
+            <!-- put <a> last so it is stacked on top -->
+            <a href="{{ $linkURL }}" itemprop="contentUrl"></a>
+          </figure>
+        </div>
+      {{- end }}
+    {{- end }}
+  {{- else -}}
+    {{ .Inner }}
+  {{- end }}
+</div>

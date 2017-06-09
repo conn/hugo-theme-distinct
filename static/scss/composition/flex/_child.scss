@@ -1,0 +1,27 @@
+body {
+  > div {
+    flex-grow: 1;
+  }
+}
+
+main {
+  flex-grow: 1;
+}
+
+body {
+  > header, > footer {
+    flex: none;
+  }
+
+  > div {
+    flex: 1 0 auto;
+  }
+}
+
+nav.top {
+  flex-grow: 1;
+}
+
+.item {
+  flex: 0 0 50%;
+}

@@ -1,0 +1,178 @@
+// https://github.com/isagalaev/highlight.js/blob/master/docs/css-classes-reference.rst
+// https://github.com/chriskempson/base16-vim/blob/master/colors/base16-solarized-light.vim
+// https://github.com/vim/vim/blob/master/runtime/syntax/syncolor.vim
+
+//----------[general]----------
+
+
+.hljs-keyword {
+  color: $color14;
+}
+
+.hljs-built_in {
+  color: $color10;
+}
+
+.hljs-type {
+  color: $color10;
+}
+
+.hljs-literal {
+  color: $color08;
+}
+
+.hljs-number {
+  color: $color09;
+}
+
+.hljs-regexp {
+  color: $color12;
+}
+
+.hljs-string {
+  color: $color11;
+}
+
+.hljs-subst {
+  color: $color08;
+}
+
+.hljs-symbol {
+  color: $color11;
+}
+
+.hljs-class {
+  color: $color10;
+}
+
+.hljs-function {
+  color: $color14;
+}
+
+.hljs-title {
+  color: $color13;
+}
+
+.hljs-params {
+  color: $color08;
+}
+
+
+//----------[meta]----------
+
+.hljs-comment {
+  color: $color04;
+}
+
+.hljs-doctag {
+  color: $color11;
+}
+
+.hljs-meta {
+  color: $color11;
+}
+
+.hljs-meta-keyword {
+  color: $color11;
+}
+
+.hljs-meta-string {
+  color: $color11;
+}
+
+
+//----------[tags, attributes, configs]----------
+
+.hljs-section {
+  color: $color13;
+}
+
+.hljs-tag {
+  color: $color02;
+}
+
+.hljs-name {
+  color: $color13;
+}
+
+.hljs-builtin-name {
+  color: $color13;
+}
+
+.hljs-attr {
+  color: $color10;
+}
+
+.hljs-attribute {
+  color: $color10;
+}
+
+.hljs-variable {
+  color: $color08;
+}
+
+
+//----------[markup]----------
+
+.hljs-bullet {
+  color: $color09;
+}
+
+.hljs-code {
+  color: $color11;
+}
+
+.hljs-formula {
+  background: $color01;
+}
+
+.hljs-link {
+  color: $color09;
+}
+
+.hljs-quote {
+  color: $color03;
+}
+
+
+//----------[css]----------
+
+.hljs-selector-tag {
+  color: $color11;
+}
+
+.hljs-selector-id {
+  color: $color13;
+}
+
+.hljs-selector-class {
+  color: $color13;
+}
+
+.hljs-selector-attr {
+  color: $color09;
+}
+
+.hljs-selector-pseudo {
+  color: $color09;
+}
+
+
+//----------[templates]----------
+
+.hljs-template-tag {
+}
+
+.hljs-template-variable {
+}
+
+
+//----------[diff]----------
+
+.hljs-addition {
+  color: $color11;
+}
+
+.hljs-deletion {
+  color: $color08;
+}

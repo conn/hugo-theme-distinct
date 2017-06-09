@@ -1,0 +1,13 @@
+<ul class="tags">
+  {{ range $term, $content := .Site.Taxonomies }}{{ if isset $.Params $term }}
+    {{ range (index $.Params $term) }}
+      <li class="tag">
+        <code>
+          <a href="{{ $.Site.BaseURL }}{{ $term }}/{{ . | urlize }}">
+            {{ . }}
+          </a>
+        </code>
+      </li>
+    {{ end }}
+  {{ end }}{{ end }}
+</ul>

@@ -1,0 +1,24 @@
+{{ define "main" }}
+  <main>
+    <section class="taxonomy">
+      <header>
+        {{ partial "breadcrumb.html" . }}
+        <h1>{{ .Title }}</h1>
+      </header>
+
+      <ul class="terms">
+        {{ $data := .Data }}
+
+        {{ range $key, $value := .Data.Terms }}
+          <li class="term">
+            <a href="{{ $.Site.BaseURL }}{{ $data.Plural }}/{{ $key | urlize }}">
+              {{ $key }} <code>{{ len $value }}</code>
+            </a>
+          </li>
+        {{ end }}
+      </ul>
+    </section>
+
+    {{ partial "pager.html" . }}
+  </main>
+{{ end }}

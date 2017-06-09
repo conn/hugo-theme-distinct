@@ -1,0 +1,23 @@
+<nav class="breadcrumb">
+  <ol class="crumbs">
+    <li class="crumb"><a href="{{ .Site.BaseURL }}">home</a></li>
+
+    {{ if eq .Kind "page" }}
+      {{ with .Section }}
+        <li class="crumb">
+          <a href="{{ $.Site.BaseURL }}{{ . | urlize }}/">{{ . }}</a>
+        </li>
+      {{ end }}
+    {{ end }}
+
+    {{ if eq .Kind "taxonomy" }}
+      {{ with .Data.Plural }}
+        <li class="crumb">
+          <a href="{{ $.Site.BaseURL }}{{ . | urlize }}/">{{ . }}</a>
+        </li>
+      {{ end }}
+    {{ end }}
+
+    <li class="crumb">{{ .Title }}</li>
+  </ol>
+</nav>

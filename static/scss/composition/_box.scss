@@ -1,0 +1,314 @@
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  > footer {
+    p {
+      margin: 0;
+      padding: 0.6944348rem;
+    }
+  }
+}
+
+html {
+  height: 100%;
+  width: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  box-sizing: border-box;
+}
+
+main {
+  min-width: 0;
+
+  > * {
+    margin: 0.6944348rem auto;
+  }
+}
+
+h1, h2 {
+  margin-top: 1.4375rem;
+  margin-bottom: 1.4375rem;
+}
+
+h3, h4, h5, h6 {
+  margin-top: 1.4375rem;
+  margin-bottom: 0;
+}
+
+p, ul, ol, pre, table, blockquote {
+  margin-top: 0;
+  margin-bottom: 1.4375rem;
+}
+
+ul ul, ol ol, ul ol, ol ul {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+code {
+  display: inline-block;
+  padding: 0.6944348rem;
+}
+
+pre > code {
+  display: block;
+  overflow-x: auto;
+
+  padding: 0.6944348rem;
+}
+
+nav {
+  ol, ul {
+    padding: 0;
+    margin: 0;
+  }
+
+  &.top, &.side {
+    padding: 0.6944348rem;
+  }
+
+  &.top {
+    .link {
+      display: block;
+      padding: 0 0.6944348rem;
+    }
+  }
+
+  &.side {
+    .link {
+      display: block;
+      padding: 0.6944348rem 0;
+    }
+  }
+}
+
+figure {
+  position: relative;
+  overflow: hidden;
+
+  a {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+  }
+}
+
+figcaption p {
+  margin: auto;
+}
+
+.brand {
+  padding: 0 0.6944348rem;
+}
+
+.single {
+  padding: 0.6944348rem;
+
+  min-width: 0;
+  max-width: 47.5rem;
+
+  > header {
+    margin-bottom: 0.6944348rem;
+  }
+}
+
+.facts, .tags {
+  margin: 0;
+  margin-bottom: 0.6944348rem;
+  padding: 0;
+}
+
+.fact {
+  display: inline-block;
+  padding: 0;
+
+  & + &:before {
+    content: "\2022\00a0";
+  }
+}
+
+.tag {
+  display: inline-block;
+  padding: 0;
+}
+
+.crumb {
+  display: inline-block;
+  padding: 0;
+
+  & + &:before {
+    content: "\00bb\00a0";
+  }
+}
+
+.list, .taxonomy {
+  > header {
+    padding: 0 1.44002rem;
+  }
+}
+
+.items {
+  padding: 0;
+  margin: 0;
+}
+
+.item {
+  display: block;
+  padding: 0 1.44002rem;
+
+  > header {
+    padding: 0;
+  }
+
+  &:nth-child(odd) {
+    padding-right: 0.809rem;
+  }
+
+  &:nth-child(even) {
+    padding-left: 0.809rem;
+  }
+}
+
+.terms {
+  padding-left: 1.44002rem;
+}
+
+.term {
+  margin-bottom: 0.6944348rem;
+}
+
+.fancy-figure {
+  img {
+    height: auto;
+    width: 100%;
+    display: block;
+  }
+
+  figure {
+    display: block;
+    clear: both;
+    margin: 0 auto 0.6944348rem auto;
+  }
+
+  figure.figure-left {
+    display: inline-block;
+    float: left;
+    margin-right: 0.6944348rem;
+  }
+
+  figure.figure-right {
+    display: inline-block;
+    float: right;
+    margin-left: 0.6944348rem;
+  }
+}
+
+.gallery {
+  overflow: hidden;
+  margin: 10px;
+  max-width: 256x;
+
+  figure {
+    position: absolute;
+    left: 5px;
+    right: 5px;
+    top: 5px;
+    bottom: 5px;
+  }
+
+  .image-container img {
+    display: none;
+  }
+
+  .lightbox {
+    float: left;
+    position: relative;
+    width: 33.3%;
+    padding-bottom: 33.3%;
+  }
+
+  .image-container {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+  }
+}
+
+.gallery, .fancy-figure {
+  figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    cursor: pointer;
+    padding: 5px;
+  }
+}
+
+@media (max-width: 768px) {
+  nav.side {
+    .link {
+      padding: 0;
+    }
+  }
+
+  .item {
+    max-width: none;
+
+    &:nth-child(odd) {
+      padding-right: 1.44002rem;
+    }
+
+    &:nth-child(even) {
+      padding-left: 1.44002rem;
+    }
+  }
+
+  .fancy-figure {
+    img {
+      height: auto;
+      width: 100%;
+      display: block;
+    }
+
+    figure {
+      display: block;
+      clear: both;
+      margin: 0 auto 0.6944348rem auto;
+    }
+
+    figure.figure-left {
+      display: block;
+      float: none;
+      margin-right: auto;
+    }
+
+    figure.figure-right {
+      display: block;
+      float: none;
+      margin-left: auto;
+    }
+  }
+
+  .gallery .lightbox {
+    width: 50%;
+    padding-bottom: 50%;
+  }
+}

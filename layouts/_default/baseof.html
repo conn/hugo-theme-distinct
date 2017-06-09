@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+<head>
+  {{ partial "meta.html" . }}
+  <title>{{ .Title | lower }} - {{ .Site.Title }}</title>
+  {{ partial "css.html" . }}
+</head>
+
+<body>
+  {{ partial "header.html" . }}
+
+  <div>
+    {{ partial "nav-side.html" . }}
+    {{ block "main" . }}{{ end }}
+  </div>
+
+  {{ partial "footer.html" . }}
+  {{ partial "js.html" . }}
+</body>
+</html>

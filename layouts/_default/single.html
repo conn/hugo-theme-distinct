@@ -1,0 +1,18 @@
+{{ define "main" }}
+  <main>
+    <article class="single">
+      <header>
+        {{ partial "breadcrumb.html" . }}
+        {{ partial "tags.html" . }}
+        <h1>{{ .Title }}</h1>
+
+        {{ if .Section }}
+          {{ partial "facts" . }}
+        {{ end }}
+      </header>
+
+      {{ .Content }}
+    </article>
+  </main>
+  {{ partial "photoswipe.html" . }}
+{{ end }}

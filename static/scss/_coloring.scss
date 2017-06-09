@@ -1,0 +1,93 @@
+//----------[palette]----------
+
+$color00: #073642; // black 1
+$color01: #002b36; // black 2
+$color02: #93a1a1; // gray 1
+$color03: #839496; // gray 2
+$color04: #657b83; // gray 3
+$color05: #586e75; // gray 4
+$color06: #fdf6e3; // white 1
+$color07: #eee8d5; // white 2
+$color08: #dc322f; // red
+$color09: #cb4b16; // orange
+$color10: #b58900; // yellow
+$color11: #859900; // green
+$color12: #2aa198; // cyan
+$color13: #268bd2; // blue
+$color14: #6c71c4; // purple
+$color15: #d33682; // pink
+
+
+//----------[imports]----------
+
+@import 'coloring/syntax';
+
+
+//----------[text]----------
+
+body {
+  color: $color06;
+}
+
+a {
+  color: $color13;
+
+  &:visited {
+    color: $color14;
+  }
+}
+
+@mixin force-color($color) {
+  color: $color;
+
+  a {
+    color: $color;
+
+    &:visited {
+      color: $color;
+    }
+  }
+}
+
+h1 { @include force-color($color08); }
+h2 { @include force-color($color09); }
+h3 { @include force-color($color10); }
+h4 { @include force-color($color11); }
+h5 { @include force-color($color12); }
+h6 { @include force-color($color13); }
+
+body > header,
+body > footer,
+nav.top,
+nav.side { @include force-color($color00); }
+
+nav.top li,
+nav.side li { @include force-color($color02); }
+
+body > footer > p { @include force-color($color05); }
+
+//----------[box]----------
+
+body {
+  background-color: $color01;
+}
+
+code {
+  background-color: $color00;
+}
+
+.lightbox {
+  figcaption {
+    background: black;
+    color: white;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 1;
+  }
+
+  &:not(:hover) {
+    figcaption {
+      background: rgba(0, 0, 0, 0);
+      opacity: 0;
+    }
+  }
+}

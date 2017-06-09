@@ -1,0 +1,35 @@
+body {
+  > header {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+
+  }
+
+  > footer {
+    border-top-style: solid;
+    border-top-width: 1px;
+  }
+}
+
+.brand {
+  border-right-style: solid;
+  border-right-width: 1px;
+}
+
+nav.side {
+  border-right-style: solid;
+  border-right-width: 1px;
+}
+
+@media (max-width: 768px) {
+  .brand {
+    border-right-style: none;
+  }
+
+  nav.side {
+    border-right-style: none;
+
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+  }
+}

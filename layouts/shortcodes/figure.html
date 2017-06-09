@@ -1,0 +1,80 @@
+<!--
+  Acquired and adjusted from https://github.com/liwenyip/hugo-easy-gallery/
+  Documentation and license located there
+-->
+
+{{- $.Page.Scratch.Add "figurecount" 1 -}}
+{{- $thumb := .Get "src" | default (printf "%s." (.Get "thumb") | replace (.Get "link") ".") }}
+
+<div class="lightbox fancy-figure">
+  <figure
+    itemprop="associatedMedia"
+    itemscope
+    itemtype="http://schema.org/ImageObject"
+
+    class="
+      {{ with .Get "float" }}
+        figure-{{ . }}
+      {{ end }}
+    "
+
+    style="
+      height: 100%;
+
+      {{ with .Get "width" }}
+        max-width: {{ . }};
+      {{ end }}
+    "
+  >
+
+  <div
+    class="image-container"
+
+    {{ if .Parent }}
+      style="background-image: url('{{ print .Site.BaseURL $thumb }}')"
+    {{ end }}
+  >
+
+    <img
+      itemprop="thumbnail"
+      src="{{ $thumb }}"
+
+      {{ with .Get "alt" | default (.Get "caption") }}
+        alt="{{ . }}"
+      {{ end }}
+    />
+  </div>
+
+  <a
+    {{ with .Get "link" | default (.Get "src") }}
+      href="{{ . }}"
+    {{ end }}
+
+    {{ with .Get "size" }}
+      data-size="{{ . }}"
+    {{ end }}
+
+    itemprop="contentUrl"
+  > </a>
+
+  {{- if or (or (.Get "title") (.Get "caption")) (.Get "attr")}}
+    <figcaption>
+      {{- with .Get "title" }}<h4>{{.}}</h4>{{ end }}
+
+      {{- if or (.Get "caption") (.Get "attr")}}
+        <p>
+          {{- .Get "caption" -}}
+
+          {{- with .Get "attrlink"}}
+            <a href="{{ . }}">{{ .Get "attr" }}</a>
+          {{ else }}
+            {{ .Get "attr"}}
+          {{ end -}}
+        </p>
+      {{- end }}
+
+    </figcaption>
+  {{- end }}
+
+  </figure>
+</div>

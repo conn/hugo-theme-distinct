@@ -1,0 +1,161 @@
+//----------[fonts]----------
+
+@font-face {
+  font-family: terminus;
+  src: url('../fonts/Terminus.ttf');
+}
+
+@font-face {
+  font-family: gidole;
+  src: url('../fonts/Gidole-Regular.otf');
+}
+
+@font-face {
+  font-family: raleway;
+  src: url('../fonts/Raleway-Regular.ttf');
+}
+
+body {
+  font-family: raleway, serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: gidole, sans-serif;
+}
+
+code {
+  font-family: terminus, monospace;
+}
+
+
+//----------[justification]----------
+
+body {
+  > header, > footer {
+    text-align: center;
+  }
+}
+
+nav.side, nav.top {
+  text-align: center;
+}
+
+figcaption {
+  text-align: center;
+}
+
+//----------[sizing]----------
+
+html, body {
+  font-size: 16px;
+  line-height: 1.4375rem;
+}
+
+a {
+  font-size: 1em;
+  letter-spacing: 0.07787899rem;
+  line-height: 1.4375rem;
+}
+
+code {
+  font-size: 1em;
+}
+
+h1 {
+  font-size: 3rem;
+  line-height: 4.3125rem;
+  letter-spacing: 0.07787899em;
+}
+
+h2 {
+  font-size: 2.0625rem;
+  line-height: 2.875rem;
+  letter-spacing: 0.07787899em;
+}
+
+h3 {
+  font-size: 1.4375rem;
+  line-height: 1.4375rem;
+  letter-spacing: 0.07787899em;
+}
+
+h4, h5, h6 {
+  font-size: 1rem;
+  line-height: 1.4375rem;
+  letter-spacing: 0.07787899em;
+}
+
+a, b, i, strong, em, small, code {
+  line-height: 0;
+}
+
+pre > code {
+  line-height: 1.4375rem;
+}
+
+sub, sup {
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+.brand {
+  font-size: 2.0625rem;
+  line-height: 2.875rem;
+}
+
+.item {
+  text-align: justify;
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+
+//----------[styling]----------
+
+a {
+  text-decoration: none;
+  text-transform: lowercase;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  text-transform: lowercase;
+}
+
+nav {
+  text-transform: lowercase;
+
+  ul {
+    list-style: none;
+    list-style-position: inside;
+  }
+}
+
+time {
+  font-weight: bold;
+}
+
+.facts, .items, .terms {
+  list-style: none;
+  list-style-position: inside;
+}
+
+//----------[word breaks]----------
+
+main {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+}

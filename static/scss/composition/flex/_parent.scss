@@ -1,0 +1,61 @@
+body {
+  display: flex;
+  flex-direction: column;
+
+  > header {
+    display: flex;
+    align-items: center;
+  }
+
+  > div {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+nav {
+  &.top, &.side, &.pager {
+    .links {
+      display: flex;
+    }
+  }
+
+  &.side, &.pager {
+    .links {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
+
+.items {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.terms {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+@media (max-width: 768px) {
+  body {
+    > header {
+      flex-direction: column;
+    }
+
+    > div {
+      flex-direction: column;
+    }
+  }
+
+  nav.top {
+    .links {
+      flex-flow: column wrap;
+    }
+  }
+
+  .items {
+    flex-flow: column wrap;
+  }
+}
