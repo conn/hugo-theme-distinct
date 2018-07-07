@@ -25,7 +25,7 @@ $( document ).ready(function() {
   $('figure').each( function() {
 
     // ignore any figures where class="no-photoswipe"
-    if ($(this).attr('class') == 'no-photoswipe') return true;
+    if ($(this).attr('class').includes('no-photoswipe')) return true;
 
     // get properties from child a/img/figcaption elements,
     var $figure = $(this),
