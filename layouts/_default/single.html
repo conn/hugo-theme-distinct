@@ -4,6 +4,11 @@
       <header>
         {{ partial "breadcrumb.html" . }}
         {{ partial "tags.html" . }}
+
+        {{ if and (isset .Params "cover") (.Params.cover.show | default true) }}
+          {{ partial "cover.html" . }}
+        {{ end }}
+
         <h1>{{ .Title }}</h1>
 
         {{ if .Section }}

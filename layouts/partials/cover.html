@@ -1,0 +1,57 @@
+{{ with .Params.cover }}
+  {{- $thumb := .src | default (printf "%s." .thumb | replace .link ".") }}
+
+  <div class="lightbox">
+    <figure
+      itemprop="associatedMedia"
+      itemscope
+      itemtype="http://schema.org/ImageObject"
+
+      class="
+        {{ if .nophotoswipe }}
+          no-photoswipe
+        {{ end }}
+      "
+
+      {{ with .width }}
+        style="max-width: {{ . }}"
+      {{ end }}
+    >
+
+      <img
+        itemprop="thumbnail"
+        src="{{ $thumb }}"
+
+        {{ with .alt | default .caption }}
+          alt="{{ . }}"
+        {{ end }}
+      />
+
+      <a
+        {{ with .link | default .src }}
+          href="{{ . }}"
+        {{ end }}
+
+        {{ with .size }}
+          data-size="{{ . }}"
+        {{ end }}
+
+        itemprop="contentUrl"
+      > </a>
+
+      {{- if or .caption .attr}}
+        <figcaption>
+          <p>
+            {{- .caption -}}
+
+            {{- with .attrlink }}
+              <a href="{{ . }}">{{ .attr }}</a>
+            {{ else }}
+              {{ .attr }}
+            {{ end -}}
+          </p>
+        </figcaption>
+      {{- end }}
+    </figure>
+  </div>
+{{ end }}
