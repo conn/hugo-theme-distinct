@@ -166,18 +166,61 @@ figcaption p {
 
 .item {
   display: block;
-  padding: 0 1.44002rem;
+  height: 100%;
+  width: 100%;
+  padding: 1.44002rem;
+  padding-top: 0;
+  overflow: hidden;
 
-  > header {
-    padding: 0;
+  article {
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    float: none;
+    z-index: 0;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
   }
 
-  &:nth-child(odd) {
-    padding-right: 0.809rem;
+  img {
+    position: absolute;
+    height: 0;
+    width: 0;
+    top: 0;
+    bottom: 0;
+    visibility: hidden;
   }
 
-  &:nth-child(even) {
-    padding-left: 0.809rem;
+  .color-overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    top: 0;
+    left: 0;
+  }
+
+  .title-content {
+    position: absolute;
+    padding: 0.6944348rem;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    overflow: hidden;
+  }
+
+  a {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 3;
   }
 }
 

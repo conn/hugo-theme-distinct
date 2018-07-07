@@ -76,6 +76,16 @@ code {
   background-color: $color00;
 }
 
+.item {
+  article {
+    background: $color00;
+  }
+
+  .color-overlay {
+    background: rgba(0, 0, 0,0.618);
+  }
+}
+
 .lightbox {
   figcaption {
     background: black;

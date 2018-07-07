@@ -4,5 +4,8 @@
       {{ .Date.Format ( .Site.Params.dateformat | default "Jan 2, 2006") }}
     </time>
   </li>
-  <li class="fact">{{ .ReadingTime }} minute read</li>
+
+  {{ if not .Params.nonpost }}
+    <li class="fact">{{ .ReadingTime }} minute read</li>
+  {{ end }}
 </ul>

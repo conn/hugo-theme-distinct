@@ -9,7 +9,7 @@
       </header>
 
       <ul class="items">
-        {{ range .Paginator.Pages }}
+        {{ range (.Paginator 6).Pages }}
           {{ .Render "item" }}
         {{ end }}
       </ul>
