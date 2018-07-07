@@ -5,7 +5,7 @@
 
 {{- $thumb := .Get "src" | default (printf "%s." (.Get "thumb") | replace (.Get "link") ".") }}
 
-<div class="lightbox fancy-figure">
+<div class="lightbox">
   <figure
     itemprop="associatedMedia"
     itemscope
@@ -22,20 +22,14 @@
     "
 
     style="
-      height: 100%;
-
       {{ with .Get "width" }}
         max-width: {{ . }};
       {{ end }}
+
+      {{ if .Parent }}
+        background-image: url({{ $thumb }});
+      {{ end }}
     "
-  >
-
-  <div
-    class="image-container"
-
-    {{ if .Parent }}
-      style="background-image: url('{{ print .Site.BaseURL $thumb }}')"
-    {{ end }}
   >
 
     <img
@@ -46,38 +40,31 @@
         alt="{{ . }}"
       {{ end }}
     />
-  </div>
 
-  <a
-    {{ with .Get "link" | default (.Get "src") }}
-      href="{{ . }}"
-    {{ end }}
+    <a
+      {{ with .Get "link" | default (.Get "src") }}
+        href="{{ . }}"
+      {{ end }}
 
-    {{ with .Get "size" }}
-      data-size="{{ . }}"
-    {{ end }}
+      {{ with .Get "size" }}
+        data-size="{{ . }}"
+      {{ end }}
 
-    itemprop="contentUrl"
-  > </a>
+      itemprop="contentUrl"
+    ></a>
 
-  {{- if or (or (.Get "title") (.Get "caption")) (.Get "attr")}}
-    <figcaption>
-      {{- with .Get "title" }}<h4>{{.}}</h4>{{ end }}
+    {{- if or (.Get "caption") (.Get "attr")}}
+      <figcaption>
+          <p>
+            {{- .Get "caption" -}}
 
-      {{- if or (.Get "caption") (.Get "attr")}}
-        <p>
-          {{- .Get "caption" -}}
-
-          {{- with .Get "attrlink"}}
-            <a href="{{ . }}">{{ .Get "attr" }}</a>
-          {{ else }}
-            {{ .Get "attr"}}
-          {{ end -}}
-        </p>
-      {{- end }}
-
-    </figcaption>
-  {{- end }}
-
+            {{- with .Get "attrlink"}}
+              <a href="{{ . }}">{{ .Get "attr" }}</a>
+            {{ else }}
+              {{ .Get "attr"}}
+            {{ end -}}
+          </p>
+      </figcaption>
+    {{- end }}
   </figure>
 </div>

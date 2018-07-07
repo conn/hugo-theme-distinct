@@ -189,13 +189,7 @@ figcaption p {
   margin-bottom: 0.6944348rem;
 }
 
-.fancy-figure {
-  img {
-    height: auto;
-    width: 100%;
-    display: block;
-  }
-
+.lightbox {
   figure {
     display: block;
     clear: both;
@@ -213,24 +207,23 @@ figcaption p {
     float: right;
     margin-left: 0.6944348rem;
   }
+
+  img {
+    height: auto;
+    width: 100%;
+    display: block;
+  }
+
+  figcaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    cursor: pointer;
+    z-index: 1;
+  }
 }
 
-.gallery {
-  overflow: hidden;
-  margin: 10px;
-  max-width: 256x;
-
-  figure {
-    position: absolute;
-    left: 5px;
-    right: 5px;
-    top: 5px;
-    bottom: 5px;
-  }
-
-  .image-container img {
-    display: none;
-  }
 
   .lightbox {
     float: left;
