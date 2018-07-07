@@ -224,34 +224,36 @@ figcaption p {
   }
 }
 
+.gallery {
+  overflow: hidden;
 
   .lightbox {
-    float: left;
-    position: relative;
-    width: 33.3%;
-    padding-bottom: 33.3%;
+    display: block;
+    height: 100%;
+    width: 100%;
+    padding: 1.44002rem;
+    padding-top: 0;
   }
 
-  .image-container {
-    position: absolute;
-    left: 0;
-    right: 0;
-    top: 0;
-    bottom: 0;
+  figure {
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    margin: 0;
+    float: none;
+    z-index: 0;
     background-size: cover;
     background-position: 50% 50%;
     background-repeat: no-repeat;
   }
-}
 
-.gallery, .fancy-figure {
-  figcaption {
+  img {
     position: absolute;
+    height: 0;
+    width: 0;
+    top: 0;
     bottom: 0;
-    left: 0;
-    right: 0;
-    cursor: pointer;
-    padding: 5px;
+    visibility: hidden;
   }
 }
 
@@ -262,25 +264,7 @@ figcaption p {
     }
   }
 
-  .item {
-    max-width: none;
-
-    &:nth-child(odd) {
-      padding-right: 1.44002rem;
-    }
-
-    &:nth-child(even) {
-      padding-left: 1.44002rem;
-    }
-  }
-
-  .fancy-figure {
-    img {
-      height: auto;
-      width: 100%;
-      display: block;
-    }
-
+  .lightbox {
     figure {
       display: block;
       clear: both;
@@ -298,10 +282,5 @@ figcaption p {
       float: none;
       margin-left: auto;
     }
-  }
-
-  .gallery .lightbox {
-    width: 50%;
-    padding-bottom: 50%;
   }
 }

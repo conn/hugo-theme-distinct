@@ -23,5 +23,29 @@ nav.top {
 }
 
 .item {
-  flex: 0 0 50%;
+  flex: 0 0 33%;
+}
+
+.gallery .lightbox {
+  flex: 0 0 33%;
+}
+
+@media (max-width: 1200px) {
+  .item {
+    flex: 0 0 50%;
+  }
+
+  .gallery .lightbox {
+    flex: 0 0 50%;
+  }
+}
+
+@media (max-width: 768px) {
+  .item {
+    flex: 0 0 100%;
+  }
+
+  .gallery .lightbox {
+    flex: 0 0 100%;
+  }
 }

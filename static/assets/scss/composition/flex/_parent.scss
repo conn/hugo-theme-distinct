@@ -38,6 +38,11 @@ nav {
   flex-flow: column wrap;
 }
 
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 @media (max-width: 768px) {
   body {
     > header {
@@ -56,6 +61,10 @@ nav {
   }
 
   .items {
+    flex-flow: column wrap;
+  }
+
+  .gallery {
     flex-flow: column wrap;
   }
 }
