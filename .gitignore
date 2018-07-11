@@ -1,1 +1,4 @@
-static/assets/.sass-cache
+src/scss/.sass-cache
+
+static/assets/*/*
+!static/assets/*/.keep
