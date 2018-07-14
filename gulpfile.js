@@ -5,6 +5,7 @@
 const gulp = require('gulp');
 const spawn = require('child_process').spawnSync;
 const through = require('through2');
+const del = require('del');
 
 const cmdPipe = function (cmd, args) {
   return through.obj(function (file, enc, cb) {
@@ -33,6 +34,13 @@ const scss = function() {
     cb(child.error);
   });
 };
+
+gulp.task('clean', function () {
+  del.sync([
+    'static/assets/**',
+    '!static/assets/**/.keep'
+  ]);
+});
 
 gulp.task('css', function () {
   gulp.src('src/css/**/*.css')
@@ -67,4 +75,4 @@ gulp.task('images', function () {
   ]).pipe(gulp.dest('static/assets/images'));
 });
 
-gulp.task('default', ['css', 'scss', 'js', 'fonts', 'images']);
+gulp.task('default', ['clean', 'css', 'scss', 'js', 'fonts', 'images']);
