@@ -11,7 +11,7 @@
 
         {{ range $key, $value := .Data.Terms }}
           <li class="term">
-            <a href="{{ $.Site.BaseURL }}{{ $data.Plural }}/{{ $key | urlize }}">
+            <a href="{{ print ($data.Plural | urlize) "/" ($key | urlize) | absURL }}">
               {{ $key }} <code>{{ len $value }}</code>
             </a>
           </li>

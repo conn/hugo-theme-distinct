@@ -5,7 +5,7 @@
     {{ if eq .Kind "page" }}
       {{ with .Section }}
         <li class="crumb">
-          <a href="{{ $.Site.BaseURL }}{{ . | urlize }}/">{{ . }}</a>
+          <a href="{{ . | absURL }}">{{ . }}</a>
         </li>
       {{ end }}
     {{ end }}
@@ -13,7 +13,7 @@
     {{ if eq .Kind "taxonomy" }}
       {{ with .Data.Plural }}
         <li class="crumb">
-          <a href="{{ $.Site.BaseURL }}{{ . | urlize }}/">{{ . }}</a>
+          <a href="{{ . | urlize | absURL }}">{{ . }}</a>
         </li>
       {{ end }}
     {{ end }}

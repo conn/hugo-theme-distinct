@@ -1,5 +1,7 @@
 {{ with .Params.cover }}
-  {{- $thumb := .src | default (printf "%s." .thumb | replace .link ".") }}
+  {{- $dir := cond (.absolute | default false) "" $.Dir }}
+  {{- $url := print $dir (.link | default .src) | absURL }}
+  {{- $thumb := cond (isset . "src") (print $dir .src | absURL) (printf "%s." .thumb | replace $url ".") }}
 
   <div class="lightbox">
     <figure
@@ -28,9 +30,7 @@
       />
 
       <a
-        {{ with .link | default .src }}
-          href="{{ . }}"
-        {{ end }}
+        href="{{ $url }}"
 
         {{ with .size }}
           data-size="{{ . }}"

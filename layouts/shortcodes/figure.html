@@ -3,7 +3,9 @@
   Documentation and license located there
 -->
 
-{{- $thumb := .Get "src" | default (printf "%s." (.Get "thumb") | replace (.Get "link") ".") }}
+{{- $dir := cond (eq (.Get "absolute" | default "false") "true") "" .Page.Dir }}
+{{- $url := print $dir (.Get "link" | default (.Get "src")) | absURL }}
+{{- $thumb := cond (isset .Params "src") (print $dir (.Get "src") | absURL) (printf "%s." (.Get "thumb") | replace $url ".") }}
 
 <div class="lightbox">
   <figure
@@ -42,9 +44,7 @@
     />
 
     <a
-      {{ with .Get "link" | default (.Get "src") }}
-        href="{{ . }}"
-      {{ end }}
+      href="{{ $url }}"
 
       {{ with .Get "size" }}
         data-size="{{ . }}"

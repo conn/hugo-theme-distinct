@@ -3,7 +3,7 @@
     {{ range (index $.Params $term) }}
       <li class="tag">
         <code>
-          <a href="{{ $.Site.BaseURL }}{{ $term }}/{{ . | urlize }}">
+          <a href="{{ print ($term | urlize) "/" (. | urlize) | absURL }}">
             {{ . }}
           </a>
         </code>

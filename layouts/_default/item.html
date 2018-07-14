@@ -1,10 +1,11 @@
 {{- $cover := default nil .Params.cover }}
-{{- $thumb := $cover.src | default (printf "%s." $cover.thumb | replace $cover.link ".") }}
+{{- $dir := cond ($cover.absolute | default false) "" $.Dir }}
+{{- $thumb := print $dir (cond (ne $cover.src nil) $cover.src (printf "%s." $cover.thumb | replace $cover.link ".")) | absURL }}
 
 <li class="item">
   <article
     {{ if ne $cover nil }}
-      style="background-image: url('{{ print .Site.BaseURL $thumb }}')"
+      style="background-image: url('{{ $thumb }}')"
     {{ end }}
   >
 
