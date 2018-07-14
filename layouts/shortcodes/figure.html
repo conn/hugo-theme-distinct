@@ -53,15 +53,15 @@
       itemprop="contentUrl"
     ></a>
 
-    {{- if or (.Get "caption") (.Get "attr")}}
+    {{- if or (.Get "caption") (.Get "attr") }}
       <figcaption>
           <p>
             {{- .Get "caption" -}}
 
-            {{- with .Get "attrlink"}}
+            {{- with .Get "attrlink" }}
               <a href="{{ . }}">{{ .Get "attr" }}</a>
             {{ else }}
-              {{ .Get "attr"}}
+              {{ .Get "attr" }}
             {{ end -}}
           </p>
       </figcaption>
