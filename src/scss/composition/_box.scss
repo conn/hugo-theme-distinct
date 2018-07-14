@@ -110,7 +110,11 @@ figcaption p {
 }
 
 .brand {
-  padding: 0 0.6944348rem;
+  padding: 0.6944348rem;
+
+  a {
+    display: block;
+  }
 }
 
 .single {
