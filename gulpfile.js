@@ -9,11 +9,11 @@ const del = require('del');
 
 const cmdPipe = function (cmd, args) {
   return through.obj(function (file, enc, cb) {
-    let child = spawn(cmd, args, { input: file.contents })
-    file.contents = child.stdout
-    this.push(file)
-    cb(child.error)
-  })
+    let child = spawn(cmd, args, { input: file.contents });
+    file.contents = child.stdout;
+    this.push(file);
+    cb(child.error);
+  });
 }
 
 const minify = function (type) {
