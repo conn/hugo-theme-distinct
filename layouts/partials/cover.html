@@ -1,7 +1,7 @@
 {{ with .Params.cover }}
   {{- $dir := cond (.absolute | default false) "" $.Dir }}
   {{- $url := print $dir (.link | default .src) | absURL }}
-  {{- $thumb := cond (isset . "src") (print $dir .src | absURL) (printf "%s." .thumb | replace $url ".") }}
+  {{- $thumb := print $dir (cond (isset . "src") .src (printf "%s." .thumb | replace .link ".")) | absURL }}
 
   <div class="lightbox">
     <figure

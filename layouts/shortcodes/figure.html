@@ -5,7 +5,7 @@
 
 {{- $dir := cond (eq (.Get "absolute" | default "false") "true") "" .Page.Dir }}
 {{- $url := print $dir (.Get "link" | default (.Get "src")) | absURL }}
-{{- $thumb := cond (isset .Params "src") (print $dir (.Get "src") | absURL) (printf "%s." (.Get "thumb") | replace $url ".") }}
+{{- $thumb := print $dir (cond (isset .Params "src") (.Get "src") (printf "%s." (.Get "thumb") | replace (.Get "link") ".")) | absURL }}
 
 <div class="lightbox">
   <figure
