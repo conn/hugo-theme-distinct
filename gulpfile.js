@@ -5,7 +5,8 @@
 const gulp = require('gulp');
 const spawn = require('child_process').spawnSync;
 const through = require('through2');
-const del = require('del');
+const rimraf = require('rimraf');
+const mkdirp = require('mkdirp');
 
 const cmdPipe = function (cmd, args) {
   return through.obj(function (file, enc, cb) {
@@ -36,10 +37,15 @@ const scss = function() {
 };
 
 gulp.task('clean', function () {
-  del.sync([
-    'static/assets/**',
-    '!static/assets/**/.keep'
-  ]);
+  [
+    'static/assets/css',
+    'static/assets/js',
+    'static/assets/fonts',
+    'static/assets/images'
+  ].forEach(function (dir) {
+    rimraf.sync(dir + '/**');
+    mkdirp.sync(dir);
+  });
 });
 
 gulp.task('css', function () {
