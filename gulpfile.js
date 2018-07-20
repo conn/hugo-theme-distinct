@@ -22,7 +22,7 @@ const minify = function (type) {
   return cmdPipe('minify', ['--type', type]);
 };
 
-const scss = function() {
+const scss = function () {
   return through.obj(function (file, enc, cb) {
     let child = spawn(
         'sassc',
