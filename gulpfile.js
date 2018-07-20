@@ -7,6 +7,7 @@ const spawn = require('child_process').spawnSync;
 const through = require('through2');
 const rimraf = require('rimraf');
 const mkdirp = require('mkdirp');
+const runSequence = require('run-sequence');
 
 const cmdPipe = function (cmd, args) {
   return through.obj(function (file, enc, cb) {
@@ -81,4 +82,6 @@ gulp.task('images', function () {
   ]).pipe(gulp.dest('static/assets/images'));
 });
 
-gulp.task('default', ['clean', 'css', 'scss', 'js', 'fonts', 'images']);
+gulp.task('default', function () {
+  runSequence('clean', ['css', 'scss', 'js', 'fonts', 'images']);
+});
