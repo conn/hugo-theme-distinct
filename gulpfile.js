@@ -25,12 +25,12 @@ const minify = function (type) {
 const scss = function () {
   return through.obj(function (file, enc, cb) {
     let child = spawn(
-        'sassc',
+      'sassc',
 
-        [
-          '-m', '-t', 'compressed', file.path,
-          ('static/assets/css/' + file.relative.replace('scss', 'css'))
-        ]
+      [
+        '-m', '-t', 'compressed', file.path,
+        ('static/assets/css/' + file.relative.replace('scss', 'css'))
+      ]
     );
 
     cb(child.error);
