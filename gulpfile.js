@@ -8,6 +8,7 @@ const through = require('through2');
 const rimraf = require('rimraf').sync;
 const mkdirp = require('mkdirp').sync;
 const runSequence = require('run-sequence');
+const concat = require('gulp-concat');
 
 const cmdPipe = function (cmd, args) {
   return through.obj(function (file, enc, cb) {
@@ -61,9 +62,16 @@ gulp.task('scss', function () {
 });
 
 gulp.task('js', function () {
-  return gulp.src('src/js/**/*.js')
-             .pipe(minify('js'))
-             .pipe(gulp.dest('static/assets/js'));
+  return gulp.src([
+                'src/js/jquery.min.js',
+                'src/js/highlight.min.js',
+                'src/js/photoswipe.min.js',
+                'src/js/photoswipe-ui-default.min.js',
+                'src/js/load-highlight.js',
+                'src/js/load-photoswipe.js'
+              ]).pipe(concat('main.js'))
+                .pipe(minify('js'))
+                .pipe(gulp.dest('static/assets/js'));
 });
 
 gulp.task('fonts', function () {
