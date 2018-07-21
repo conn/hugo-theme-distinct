@@ -67,6 +67,9 @@ gulp.task('js', function () {
                 'src/js/highlight.min.js',
                 'src/js/photoswipe.min.js',
                 'src/js/photoswipe-ui-default.min.js',
+                'src/js/toggle-item-color-overlay.js',
+                'src/js/toggle-thumbnail-hidden.js',
+                'src/js/inject-css.js',
                 'src/js/load-highlight.js',
                 'src/js/load-photoswipe.js'
               ]).pipe(concat('main.js'))

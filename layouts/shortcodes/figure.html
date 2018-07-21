@@ -23,15 +23,13 @@
       {{ end }}
     "
 
-    style="
-      {{ with .Get "width" }}
-        max-width: {{ . }};
-      {{ end }}
+    {{ with .Get "width" }}
+        data-css-max-width="{{ . }}";
+    {{ end }}
 
-      {{ if .Parent }}
-        background-image: url({{ $thumb }});
-      {{ end }}
-    "
+    {{ if .Parent }}
+      data-css-background-image="url({{ $thumb }})";
+    {{ end }}
   >
 
     <img

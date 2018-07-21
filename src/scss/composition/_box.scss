@@ -241,6 +241,7 @@ figcaption p {
     display: block;
     clear: both;
     margin: 0 auto 0.6944348rem auto;
+    max-width: 61.8%;
   }
 
   figure.figure-left {
@@ -285,7 +286,7 @@ figcaption p {
   figure {
     position: relative;
     width: 100%;
-    padding-top: 100%;
+    max-width: 100%;
     margin: 0;
     float: none;
     z-index: 0;
@@ -294,7 +295,11 @@ figcaption p {
     background-repeat: no-repeat;
   }
 
-  img {
+  figure.thumbnail-hidden {
+    padding-top: 100%;
+  }
+
+  img.thumbnail-hidden {
     position: absolute;
     height: 0;
     width: 0;

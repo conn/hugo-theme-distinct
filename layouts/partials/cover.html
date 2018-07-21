@@ -15,8 +15,8 @@
         {{ end }}
       "
 
-      {{ with .width }}
-        style="max-width: {{ . }}"
+      {{  with .width }}
+          data-css-max-width="{{ . }}";
       {{ end }}
     >
 

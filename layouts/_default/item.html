@@ -5,7 +5,7 @@
 <li class="item">
   <article
     {{ if ne $cover nil }}
-      style="background-image: url('{{ $thumb }}')"
+      data-css-background-image="url({{ $thumb }})"
     {{ end }}
   >
 
@@ -34,10 +34,6 @@
           <p>{{ .Summary | truncate 140 }}</p>
         {{ end }}
     </div>
-
-    {{ if ne $cover nil }}
-      <div class="color-overlay"></div>
-    {{ end }}
 
     <a itemprop="contentUrl" href="{{ .Permalink }}"></a>
   </article>
